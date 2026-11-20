@@ -1,0 +1,239 @@
+/* ==========================================================
+   jaedonjensen.com: dark bento layout
+   All colors/sizes live here as tokens; change them in one place.
+   ========================================================== */
+
+:root {
+  --bg: #0b0d10;          /* page background */
+  --tile: #14171c;        /* tile surface */
+  --tile-hover: #191d23;
+  --line: #23272e;        /* borders, dividers */
+  --text: #e6e8eb;
+  --muted: #8b929c;
+  --accent: #5eead4;      /* teal */
+  --accent-soft: rgba(94, 234, 212, 0.1);
+
+  --radius: 22px;
+  --gap: 16px;
+  --font: "Plus Jakarta Sans", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.55 var(--font);
+  padding: 0 16px 48px;
+}
+
+a { color: inherit; }
+
+/* ---------- header ---------- */
+.site-header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-header .logo { font-family: var(--mono); color: var(--accent); text-decoration: none; }
+.site-header nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-size: 14px; }
+.site-header nav a:hover { color: var(--text); }
+
+/* ---------- bento grid ---------- */
+.bento {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.tile {
+  background: var(--tile);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.label {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.pill {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* hero: 3 columns wide, 2 rows tall */
+.tile--hero {
+  grid-column: span 3;
+  grid-row: span 2;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+.tile--hero h1 {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.tile--hero h1 span { color: var(--muted); }
+.tile--hero p { color: var(--muted); max-width: 540px; font-size: 18px; margin-top: 16px; }
+
+.tile--avatar {
+  display: grid;
+  place-items: center;
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--accent), #6366f1);
+  border: 0;
+}
+
+/* headshot drop-in: fills the tile, cropped to the face area */
+.tile--avatar:has(img) { padding: 0; overflow: hidden; background: var(--tile); }
+.tile--avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; }
+
+.tile--links { display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+.tile--links a { display: flex; justify-content: space-between; text-decoration: none; font-weight: 500; }
+.tile--links a:hover { color: var(--accent); }
+
+.tile--skills,
+.tile--certs { grid-column: span 2; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+.chips li {
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.certs { list-style: none; padding: 0; display: grid; gap: 12px; }
+.certs li { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+.certs strong { font-weight: 600; }
+.certs span { font-family: var(--mono); font-size: 13px; color: var(--accent); white-space: nowrap; }
+
+/* ---------- section headings (full-width row in the grid) ---------- */
+.bento-heading {
+  grid-column: 1 / -1;          /* span every column, whatever the count */
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 32px;
+  scroll-margin-top: 24px;      /* breathing room when jumped to from the nav */
+}
+
+/* ---------- experience timeline ---------- */
+.tile--timeline { grid-column: span 2; }
+
+.timeline { list-style: none; padding: 0; }
+.timeline > li {
+  position: relative;
+  padding: 0 0 20px 22px;
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+}
+.timeline > li:last-child { padding-bottom: 0; border-left-color: transparent; }
+.timeline > li::before {            /* the dot on the line */
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.timeline .when { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+.timeline strong { font-size: 17px; margin-top: 2px; }
+.timeline .where { color: var(--muted); font-size: 15px; }
+.bullets { margin-top: 8px; padding-left: 18px; color: var(--muted); font-size: 15px; }
+.bullets li + li { margin-top: 4px; }
+
+/* ---------- project tiles ---------- */
+.tile--project {
+  grid-column: span 2;
+  padding: 0;
+  overflow: hidden;             /* clip the image to the rounded corners */
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.tile--project:hover { border-color: var(--accent); transform: translateY(-2px); }
+.tile--project img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  border-bottom: 1px solid var(--line);
+}
+.project-body { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill--muted { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
+.project-body h3 { font-size: 20px; }
+.project-body p { color: var(--muted); font-size: 15px; }
+.project-link { margin-top: auto; padding-top: 8px; font-weight: 500; text-decoration: none; color: var(--accent); }
+.project-link:hover { text-decoration: underline; }
+
+/* ---------- contact ---------- */
+.tile--contact {
+  grid-column: 1 / -1;
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  scroll-margin-top: 24px;
+}
+.tile--contact h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn--ghost { background: transparent; color: var(--text); border-color: var(--line); }
+.btn:hover { filter: brightness(1.1); }
+.btn--ghost:hover { border-color: var(--accent); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .bento { grid-template-columns: repeat(2, 1fr); }
+  .tile--hero { grid-column: span 2; grid-row: auto; }
+}
+
+@media (max-width: 560px) {
+  .bento { grid-template-columns: 1fr; }
+  .tile--hero, .tile--skills, .tile--certs, .tile--project, .tile--timeline { grid-column: auto; }
+  .tile--avatar { min-height: 140px; }
+  .site-header nav a:not(:last-child) { display: none; }
+}
