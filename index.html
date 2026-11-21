@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=3">
+  <link rel="stylesheet" href="css/site.css?v=4">
 </head>
 <body>
 
@@ -52,36 +52,40 @@
     </nav>
 
     <!-- Row 3: skills + certifications -->
-    <section class="tile tile--skills">
+    <section class="tile tile--wide tile--skills">
       <h2 class="label">Toolkit</h2>
       <ul class="chips">
-        <li>Python</li><li>pandas</li><li>SQL</li><li>Tableau</li>
-        <li>Power BI</li><li>Excel</li><li>C++</li><li>Java</li>
+        <li>Python</li><li>pandas</li><li>SQL</li><li>SQL Server</li>
+        <li>Microsoft Fabric</li><li>Spark SQL</li><li>Power BI</li><li>DAX</li>
+        <li>Tableau</li><li>Make.com</li><li>Excel</li><li>C++</li><li>Java</li>
       </ul>
     </section>
 
-    <section class="tile tile--certs">
-      <h2 class="label">Certifications</h2>
-      <ul class="certs">
-        <li><strong>CompTIA Security+</strong><span>2023 · renewed Jun 2026</span></li>
-        <li><strong>AWS Certified Cloud Practitioner</strong><span>Mar 2025</span></li>
-      </ul>
-    </section>
 
     <!-- Experience + education -->
     <h2 class="bento-heading" id="experience">Experience</h2>
 
-    <section class="tile tile--timeline" aria-labelledby="work-label">
+    <section class="tile tile--wide" aria-labelledby="work-label">
       <h3 class="label" id="work-label">Work</h3>
       <ol class="timeline">
-        <!-- TODO: Jr ETL Developer entry. Copy this shape:
         <li>
-          <span class="when">Mon YYYY – Present</span>
+          <span class="when">Jun 2025 – Nov 2026</span>
           <strong>Jr ETL Developer</strong>
-          <span class="where">Company</span>
-          <ul class="bullets"><li>…</li></ul>
+          <span class="where">SurgeU (Oxlos Inc.)</span>
+          <ul class="bullets">
+            <li>Built a scheduled Spark SQL notebook in Microsoft Fabric that MERGEs payment data
+                from 5 sources (~194K rows) into one Delta table, feeding the Power BI
+                <a href="projects/collections.html">collections dashboard</a> used by the sales team lead.</li>
+            <li>Cut the company's Make.com subscription 60% ($3,000 → $1,200/month, ~$21.6K/year)
+                by consolidating 100+ scenarios into universal variants and tuning run schedules.</li>
+            <li>Backfilled historical data into new SQL Server databases and automated class-roster
+                operations with stored procedures and SQL Server Agent jobs, including a production
+                job that populates rosters from HubSpot.</li>
+            <li>Built and maintained integrations across SQL Server, HubSpot, Monday.com, Close, Asana
+                and Wufoo, including ticket-sales webhook ingestion. As sole active admin from Oct 2025,
+                fixed silent failures in the highest-impact scenarios and added alerting.</li>
+          </ul>
         </li>
-        -->
         <li>
           <span class="when">Mar 2023 – Dec 2023</span>
           <strong>Computer Systems Engineer Intern</strong>
@@ -104,6 +108,13 @@
           <span class="where">University of South Florida</span>
         </li>
       </ol>
+    </section>
+    <section class="tile tile--certs">
+      <h3 class="label">Certifications</h3>
+      <ul class="certs">
+        <li><strong>CompTIA Security+</strong><span>2023 · renewed Jun 2026</span></li>
+        <li><strong>AWS Certified Cloud Practitioner</strong><span>Mar 2025</span></li>
+      </ul>
     </section>
 
     <!-- Projects -->
@@ -147,8 +158,8 @@
     </article>
 
     <article class="tile tile--project">
-      <img src="images/projects/pbi-ticket-digest.webp" width="1600" height="900" loading="lazy"
-           alt="Power BI weekly cancellations view with KPIs and a bar chart of cancellations by week">
+      <img src="images/projects/pbi-ticket-digest.webp" width="1529" height="860" loading="lazy"
+           alt="Power BI ticket dashboard with sold vs. cancelled KPIs and a daily bar chart">
       <div class="project-body">
         <div class="tags"><span class="pill">Power BI</span><span class="pill pill--muted">Synthetic data</span></div>
         <h3>Ticket Order Digest</h3>

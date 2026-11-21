@@ -88,6 +88,7 @@ a { color: inherit; }
   justify-content: space-between;
   gap: 32px;
 }
+.tile--hero .pill { align-self: flex-start; }  /* don't stretch to the tile's width */
 .tile--hero h1 {
   font-size: clamp(36px, 5vw, 60px);
   font-weight: 800;
@@ -168,8 +169,9 @@ a { color: inherit; }
 .timeline .when { font-family: var(--mono); font-size: 12px; color: var(--accent); }
 .timeline strong { font-size: 17px; margin-top: 2px; }
 .timeline .where { color: var(--muted); font-size: 15px; }
-.bullets { margin-top: 8px; padding-left: 18px; color: var(--muted); font-size: 15px; }
+.bullets { margin-top: 8px; padding-left: 18px; color: var(--muted); font-size: 15px; max-width: 820px; }
 .bullets li + li { margin-top: 4px; }
+.bullets a { color: var(--accent); }
 
 /* ---------- project tiles ---------- */
 .tile--project {
