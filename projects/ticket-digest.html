@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticket Order Digest · Jaedon Jensen</title>
+  <meta name="description" content="Power BI case study: daily ticket sales and cancellations by market across switchable time windows.">
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css?v=3">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="../index.html">jj.</a>
+    <nav aria-label="Site">
+      <a href="../index.html#projects">← All projects</a>
+    </nav>
+  </header>
+
+  <main class="bento">
+
+    <section class="tile tile--wide case-hero">
+      <div class="tags"><span class="pill">Power BI</span><span class="pill pill--muted">Synthetic data</span></div>
+      <h1>Ticket Order Digest</h1>
+      <p class="question">How are ticket sales and cancellations trending by market?</p>
+      <p>Teams responsible for getting ticket buyers to their events needed a daily read on demand
+         and cancellations, both for the latest week and over longer periods.</p>
+    </section>
+
+    <!-- TODO: add the 7-Day View overview screenshot here (full width) once re-exported -->
+
+    <figure class="tile tile--wide shot">
+      <img src="../images/projects/pbi-ticket-digest.webp" width="1600" height="900"
+           alt="Weekly Cancellations view: KPIs for last week, a bar chart of cancellations by week with the current partial week outlined, and a weekly table">
+      <figcaption>Weekly Cancellations: last complete week vs. prior, with the in-progress week outlined.</figcaption>
+    </figure>
+
+    <section class="tile tile--half prose">
+      <h2 class="label">What it shows</h2>
+      <ul>
+        <li><strong>KPI strip:</strong> tickets sold, tickets cancelled (vs. the previous period),
+            net tickets and sales.</li>
+        <li><strong>Daily activity:</strong> sold vs. cancelled tickets per day, plus a daily detail table.</li>
+        <li><strong>Time windows:</strong> 7-day, 30-day, 90-day, year-to-date and custom date-range views.</li>
+        <li><strong>Weekly Cancellations:</strong> last complete week vs. prior, cancellation rate,
+            and a 4, 8 or 12-week trend.</li>
+        <li><strong>Market filter:</strong> every view can be narrowed to one market or event.</li>
+      </ul>
+    </section>
+
+    <section class="tile tile--half prose">
+      <h2 class="label">How it's built</h2>
+      <ul>
+        <li><strong>Disconnected selector tables</strong> for the time window and number of weeks,
+            read by measures, so one set of visuals serves every window.</li>
+        <li><strong>Period-over-period measures</strong> that compare each window with the one before it.</li>
+        <li><strong>Partial-week handling:</strong> the in-progress week is shown but excluded from
+            "last complete week" comparisons, so early-week numbers don't look like a drop.</li>
+        <li><strong>Tooltip page</strong> with daily detail on hover.</li>
+      </ul>
+    </section>
+
+    <aside class="tile tile--wide data-note">
+      <h2 class="label">Data</h2>
+      <p>Fully synthetic: 5,400 generated event-day rows across eight fictional markets, from
+         January 2025 to November 2026. Covers ticket demand and cancellations only, not actual
+         attendance. Rebuilt from a production dashboard with all branding and real data removed.</p>
+    </aside>
+
+    <nav class="tile tile--wide case-nav" aria-label="Case studies">
+      <a href="promo-tracking.html">← Previous: Promo Code Performance</a>
+      <a href="../index.html#projects">All projects</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>

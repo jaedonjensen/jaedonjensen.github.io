@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collections Tracker · Jaedon Jensen</title>
+  <meta name="description" content="Power BI case study: a weekly collections dashboard tracking reps against goal, with history and an SVG goal ring.">
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css?v=3">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="../index.html">jj.</a>
+    <nav aria-label="Site">
+      <a href="../index.html#projects">← All projects</a>
+    </nav>
+  </header>
+
+  <main class="bento">
+
+    <section class="tile tile--wide case-hero">
+      <div class="tags"><span class="pill">Power BI</span><span class="pill pill--muted">Synthetic data</span></div>
+      <h1>Collections Tracker</h1>
+      <p class="question">Are we on pace for this week's collections goal, and who's driving it?</p>
+      <p>A collections team tracked weekly results against a goal in a spreadsheet. This dashboard
+         replaced it with a live view of the current week, historical trends and a refund lookup.</p>
+    </section>
+
+    <figure class="tile tile--wide shot">
+      <img src="../images/projects/pbi-collections.webp" width="1600" height="900"
+           alt="Current-week view: a table of collections by rep and payment type, a goal ring at 48%, and charts by week and by rep">
+      <figcaption>Current Week: collections by rep, the goal ring and the yearly trend.</figcaption>
+    </figure>
+
+    <section class="tile tile--half prose">
+      <h2 class="label">What it shows</h2>
+      <ul>
+        <li><strong>Current Week:</strong> collections by rep, split by payment type, with the team
+            total against the weekly goal.</li>
+        <li><strong>Goal ring:</strong> percent of goal reached and the dollar gap, with a
+            "Top Collector" callout.</li>
+        <li><strong>Weekly and Quarterly Historical:</strong> pick any week or quarter to see totals,
+            goal attainment and rep rankings.</li>
+        <li><strong>Refund Summary:</strong> a simple weekly refund lookup that preserves the
+            workflow from the old spreadsheet.</li>
+      </ul>
+    </section>
+
+    <section class="tile tile--half prose">
+      <h2 class="label">How it's built</h2>
+      <ul>
+        <li><strong>SVG goal ring as a DAX measure:</strong> the ring is drawn by a measure that
+            returns an SVG image, so it responds to filters like any other visual.</li>
+        <li><strong>ISO week calendar:</strong> weeks and quarters follow ISO definitions to match
+            how the team reports.</li>
+        <li><strong>Model:</strong> payments, goals and calendar tables, with about 30 measures for
+            totals, attainment and rankings.</li>
+        <li><strong>Navigation:</strong> button-driven pages and a "Clear Filters" action for
+            non-technical users.</li>
+      </ul>
+    </section>
+
+    <figure class="tile tile--wide shot">
+      <img src="../images/projects/collections-weekly.webp" width="1600" height="900" loading="lazy"
+           alt="Weekly Historical view for all of 2026: rep totals, a goal ring at 95%, and weekly trend and rep ranking charts">
+      <figcaption>Weekly Historical: the full year with week and year filters.</figcaption>
+    </figure>
+
+    <aside class="tile tile--wide data-note">
+      <h2 class="label">Data</h2>
+      <p>Fully synthetic: 8,759 generated transactions for eight fictional reps, with weekly goals
+         from January 2024 to November 2026. Rebuilt from a production dashboard with all branding
+         and real data removed.</p>
+    </aside>
+
+    <nav class="tile tile--wide case-nav" aria-label="Case studies">
+      <span></span>
+      <a href="audience-strength.html">Next: Audience Strength →</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>

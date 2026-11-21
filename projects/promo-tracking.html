@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promo Code Performance · Jaedon Jensen</title>
+  <meta name="description" content="Power BI case study: following promo codes from ticket purchase through class attendance.">
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css?v=3">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="../index.html">jj.</a>
+    <nav aria-label="Site">
+      <a href="../index.html#projects">← All projects</a>
+    </nav>
+  </header>
+
+  <main class="bento">
+
+    <section class="tile tile--wide case-hero">
+      <div class="tags"><span class="pill">Power BI</span><span class="pill pill--muted">Synthetic data</span></div>
+      <h1>Promo Code Performance</h1>
+      <p class="question">Which promo codes turn ticket buyers into class buyers?</p>
+      <p>Leadership used promo codes to fill events and wanted to see what happened next: did those
+         buyers attend, and did they go on to buy and attend a follow-up class?</p>
+    </section>
+
+    <figure class="tile tile--wide shot">
+      <img src="../images/projects/pbi-promo-tracking.webp" width="1530" height="863"
+           alt="Promo dashboard: a ticket-to-class funnel, a pie chart of tickets by promo type, buyer rate by promo type, and a code-level table">
+      <figcaption>Overview: funnel, ticket mix, buyer rate by promo type and code-level detail.</figcaption>
+    </figure>
+
+    <section class="tile tile--half prose">
+      <h2 class="label">What it shows</h2>
+      <ul>
+        <li><strong>Funnel:</strong> tickets bought → event attendees → class buyers → class
+            attendees, with the overall conversion rate.</li>
+        <li><strong>Ticket mix:</strong> share of tickets by promo type (community, email, guest pass,
+            partner).</li>
+        <li><strong>Class buyer rate by promo type:</strong> class buyers ÷ tickets, for comparing
+            channels fairly regardless of volume.</li>
+        <li><strong>Code-level table:</strong> every promo code with order dates, tickets, orders,
+            revenue and downstream results.</li>
+      </ul>
+    </section>
+
+    <section class="tile tile--half prose">
+      <h2 class="label">How it's built</h2>
+      <ul>
+        <li><strong>Text search slicer:</strong> type a code to filter the whole report to it, which
+            is faster than scrolling a dropdown of dozens of codes.</li>
+        <li><strong>Dropdown filters</strong> for promo type and event, all driving the same visuals.</li>
+        <li><strong>Ratio measures from summed parts:</strong> SUM(buyers) ÷ SUM(tickets) rather than
+            averaging row-level rates, so totals stay correct at any filter level.</li>
+        <li><strong>Descriptive, not causal:</strong> the funnel shows what buyers did after using a
+            code. It doesn't claim the code caused the purchase.</li>
+      </ul>
+    </section>
+
+    <figure class="tile tile--wide shot">
+      <img src="../images/projects/promo-code-search.webp" width="1529" height="858" loading="lazy"
+           alt="The same dashboard filtered to a single promo code via the search box, with the funnel showing 114 tickets down to 18 class attendees">
+      <figcaption>Code search: one promo code typed in, and every visual follows.</figcaption>
+    </figure>
+
+    <aside class="tile tile--wide data-note">
+      <h2 class="label">Data</h2>
+      <p>Fully synthetic: 48 fictional promo-code and event combinations across eight markets and
+         four promo types. Rebuilt from a production dashboard with all branding and real data removed.</p>
+    </aside>
+
+    <nav class="tile tile--wide case-nav" aria-label="Case studies">
+      <a href="audience-strength.html">← Previous: Audience Strength</a>
+      <a href="ticket-digest.html">Next: Ticket Order Digest →</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>

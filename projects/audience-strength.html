@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audience Strength · Jaedon Jensen</title>
+  <meta name="description" content="Power BI case study: an executive dashboard comparing event audience strength across a ranking, timeline and map.">
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css?v=3">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="../index.html">jj.</a>
+    <nav aria-label="Site">
+      <a href="../index.html#projects">← All projects</a>
+    </nav>
+  </header>
+
+  <main class="bento">
+
+    <section class="tile tile--wide case-hero">
+      <div class="tags"><span class="pill">Power BI</span><span class="pill pill--muted">Synthetic data</span></div>
+      <h1>Audience Strength</h1>
+      <p class="question">Which upcoming events have stronger or weaker audiences than usual?</p>
+      <p>A partner scores ticket purchasers, and those scores are rolled up to a single relative
+         score per event. Leadership needed a quick way to compare events side by side and see
+         where each one sits on the calendar and the map.</p>
+    </section>
+
+    <figure class="tile tile--wide shot">
+      <img src="../images/projects/pbi-audience-strength.webp" width="1600" height="900"
+           alt="Dashboard with a ranked bar chart of events by audience strength, a timeline with shaded strength bands, and a US map of event locations">
+      <figcaption>Overview: ranking, banded timeline and map, all events selected.</figcaption>
+    </figure>
+
+    <section class="tile tile--half prose">
+      <h2 class="label">What it shows</h2>
+      <ul>
+        <li><strong>Ranked comparison:</strong> every event sorted by relative audience strength,
+            colored from very strong (blue) to very weak (red).</li>
+        <li><strong>Timeline:</strong> events plotted by date against shaded strength bands, with a
+            Today marker separating past from upcoming events.</li>
+        <li><strong>Map:</strong> event locations colored by the same strength scale.</li>
+        <li><strong>Click to focus:</strong> selecting an event filters the timeline and map to it
+            and dims the rest.</li>
+      </ul>
+    </section>
+
+    <section class="tile tile--half prose">
+      <h2 class="label">How it's built</h2>
+      <ul>
+        <li><strong>Threshold categories in DAX:</strong> five bands (very strong ≥ 5, strong ≥ 2,
+            normal, weak ≤ −2, very weak ≤ −5) drive the colors on every visual.</li>
+        <li><strong>Banded timeline:</strong> reference bands and lines mark the thresholds, so it's
+            clear how far an event is from "normal".</li>
+        <li><strong>Coordinated visuals:</strong> cross-filtering is set up so one click updates the
+            timeline and map together.</li>
+        <li><strong>Tooltip page:</strong> hovering shows event details without cluttering the canvas.</li>
+      </ul>
+    </section>
+
+    <figure class="tile tile--half shot">
+      <img src="../images/projects/audience-strength-timeline.webp" width="1070" height="459" loading="lazy"
+           alt="Close-up of the timeline: event dots over blue and red threshold bands with a dashed Today line">
+      <figcaption>Timeline detail: threshold bands at ±2 and ±5, with the Today marker.</figcaption>
+    </figure>
+
+    <aside class="tile tile--half data-note">
+      <h2 class="label">Data</h2>
+      <p>Fully synthetic: 24 fictional events across eight fictional markets, with generated scores
+         from −8.6 to +10.8. Map points use approximate city centers and don't represent real venues.
+         Rebuilt from a production dashboard with all branding and real data removed.</p>
+    </aside>
+
+    <nav class="tile tile--wide case-nav" aria-label="Case studies">
+      <a href="collections.html">← Previous: Collections Tracker</a>
+      <a href="promo-tracking.html">Next: Promo Code Performance →</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>

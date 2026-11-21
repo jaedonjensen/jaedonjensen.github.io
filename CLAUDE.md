@@ -13,6 +13,7 @@ Personal portfolio served by GitHub Pages at https://jaedonjensen.com.
 - Dark theme only (decided 2026-11-20); no theme toggle.
 - Images in `images/`; project screenshots in `images/projects/`.
 - Keep JS tiny and dependency-free.
+- Stylesheet links use a cache-busting query (`site.css?v=N`). Bump N on every page whenever `css/site.css` changes.
 
 ## Run locally
     python3 -m http.server 8000   # then open http://localhost:8000
